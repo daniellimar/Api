@@ -1,5 +1,6 @@
 package com.api.Api;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class PersonController {
 	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
 	public Person findById(@PathVariable(value="id") String id) throws Exception{
 		return service.findById(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
+	public List<Person> findAll(){
+		return service.findAll();
 	}
 }
